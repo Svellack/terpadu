@@ -1,0 +1,37 @@
+
+#header{
+  background-color: #03581F;
+  color: white;
+}
+
+#isi{
+  text-align: center;
+  min-height: 100vh;
+}
+/* 
+BEE4B4
+57787C
+FEE45E
+FF3939
+83EE69
+227A2B 
+*/
+
+/* 
+login
+jasa
+*/
+
+#nav{
+  background-color: white;
+  border-top:solid lightgrey 10px;
+}
+
+#nonnav{
+  background-color: white;
+  border:solid lightgrey 10px;
+}
+
+#footer{
+  background-color: black;
+}
