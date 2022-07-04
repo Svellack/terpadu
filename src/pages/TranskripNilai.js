@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import Preview from '../components/Preview';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,16 +71,16 @@ function ValidationTextFields() {
 
       <Grid item xs={12}>
       <div><br/>
-        <Link to="">
-          <Button size="small" color="primary">
-            Preview
-          </Button>
-        </Link>
-        <Link to="/dashboard">
-          <Button size="small" color="primary">
-            Submit
-          </Button>
-        </Link><br/><br/>
+        <Grid container justifyContent="center">
+          <Preview/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Link style={{textDecoration:'none'}} to="/dashboard">
+            <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
+              Submit 
+            </Button>
+          </Link>
+        </Grid>
+        <br/><br/>
       </div>
       </Grid>
 

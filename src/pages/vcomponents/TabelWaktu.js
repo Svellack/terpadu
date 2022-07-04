@@ -70,11 +70,13 @@ TablePaginationActions.propTypes = {
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor: "white",
+    color: "black",
+    borderRight:"solid lightgrey 1px"
   },
   body: {
     fontSize: 14,
+    borderRight:"solid lightgrey 1px"
   },
 }))(TableCell);
 
@@ -137,13 +139,13 @@ const TabelWaktu = () => {
           <Table className={classes.table} size="small" aria-label="customized table">
             <TableHead>
               <TableRow >
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Minggu</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Senin</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Selasa</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Rabu</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Kamis</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Jumat</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Sabtu</StyledTableCell>
+                <StyledTableCell align="center">Minggu</StyledTableCell>
+                <StyledTableCell align="center">Senin</StyledTableCell>
+                <StyledTableCell align="center">Selasa</StyledTableCell>
+                <StyledTableCell align="center">Rabu</StyledTableCell>
+                <StyledTableCell align="center">Kamis</StyledTableCell>
+                <StyledTableCell align="center">Jumat</StyledTableCell>
+                <StyledTableCell style={{borderRight:"none"}} align="center">Sabtu</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -152,15 +154,13 @@ const TabelWaktu = () => {
             : rows
             ).map((row) => (
                 <StyledTableRow key={row.minggu}>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center" component="th" scope="row">
-                    {row.minggu}
-                  </StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.senin}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.selasa}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.rabu}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.kamis}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.jumat}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.sabtu}</StyledTableCell>
+                  <StyledTableCell align="center" component="th" scope="row">{row.minggu}</StyledTableCell>
+                  <StyledTableCell align="center">{row.senin}</StyledTableCell>
+                  <StyledTableCell align="center">{row.selasa}</StyledTableCell>
+                  <StyledTableCell align="center">{row.rabu}</StyledTableCell>
+                  <StyledTableCell align="center">{row.kamis}</StyledTableCell>
+                  <StyledTableCell align="center">{row.jumat}</StyledTableCell>
+                  <StyledTableCell style={{borderRight:"none"}} align="center">{row.sabtu}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'left',
-    color: theme.palette.text.primary,
-    backgroundColor:"#BEE4B4",
+    backgroundColor: "lightyellow",
+    border: "solid #FF3939 1px",
     height:"10vw"
   },
 }));
@@ -41,9 +41,9 @@ const DashABatalDetail = () => {
               <ListItemText style={{marginLeft:"20px"}}>
                 <ListItemText primary="Layanan"></ListItemText> 
                 <ListItemText primary="Pengaju"></ListItemText>  
-                <ListItemText primary="Tanggal Pengajuan"></ListItemText> 
-                <ListItemText primary="Tanggal Pemrosesan"></ListItemText> 
-                <ListItemText primary="Tanggal Pembatalan"></ListItemText> 
+                <ListItemText primary="Waktu Pengajuan"></ListItemText> 
+                <ListItemText primary="Waktu Pemrosesan"></ListItemText> 
+                <ListItemText primary="Waktu Pembatalan"></ListItemText> 
               </ListItemText>
             </Paper>
           </Grid>        

@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: theme.palette.text.primary,
-    backgroundColor:"#BEE4B4",
+    backgroundColor: "lightyellow",
+    border: "solid #83EE69 1px",
     height:"10vw"
   },
 }));
@@ -62,9 +63,9 @@ const DashACetakDetail = () => {
               <ListItemText style={{marginLeft:"20px"}}>
                 <ListItemText primary="Layanan"></ListItemText> 
                 <ListItemText primary="Pengaju"></ListItemText>  
-                <ListItemText primary="Tanggal Pengajuan"></ListItemText> 
-                <ListItemText primary="Tanggal Pemrosesan"></ListItemText> 
-                <ListItemText primary="Tanggal Dicetak"></ListItemText> 
+                <ListItemText primary="Waktu Pengajuan"></ListItemText> 
+                <ListItemText primary="Waktu Pemrosesan"></ListItemText> 
+                <ListItemText primary="Waktu Dicetak"></ListItemText> 
               </ListItemText>
             </Paper>
           </Grid>        
@@ -88,8 +89,8 @@ const DashACetakDetail = () => {
                   title="Contemplative Reptile"
                 />
                 </CardContent>
-                <Link to="/dashASuratDiambil">
-                <Button size="small" color="primary">
+                <Link style={{textDecoration:'none'}} to="/dashASuratDiambil">
+                <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
                   Selesai
                 </Button>
                 </Link>

@@ -66,13 +66,13 @@ const NavbarAdmin = ({handleNavToggle}) => {
             </StyledMenu>
         </div>
         <StyledLink to="/dashAdmin">
-            <Accordion>
+            <Accordion square>
                 <AccordionSummary>
                     <Typography style={{textAlign:"left"}}>Dashboard</Typography>
                 </AccordionSummary>
             </Accordion>
         </StyledLink>
-        <Accordion>
+        <Accordion square>
             <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
                 <ArrowRightIcon/>
                 <Typography style={{textAlign:"left"}}>Kategori</Typography>
@@ -110,7 +110,7 @@ const NavbarAdmin = ({handleNavToggle}) => {
         </Accordion>
 
         <StyledLink to="/">
-            <Accordion>
+            <Accordion square>
                 <AccordionSummary>
                     <Typography style={{textAlign:"left"}}>Keluar</Typography>
                 </AccordionSummary>

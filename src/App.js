@@ -40,11 +40,14 @@ function App() {
     return(
     <Router>
       <Grid container>
+        
+       
         <Grid id="nav" item xs={3}>
           { navToggled ? <Navbar handleNavToggle={handleNavToggle} /> : null }
           <Toggle handleNavToggle={handleNavToggle} />
-          <NavbarAdmin/>
+           <NavbarAdmin/> 
         </Grid>
+
         <Grid id="nonnav" item xs={9}>
           <Routes>
               <Route index element={<Login />}></Route>
@@ -75,9 +78,11 @@ function App() {
     </Router>
     )
   }
-  
+
   const [navToggled, setNavToggled] = useState(false);
   
+  
+
   const handleNavToggle = () => {
     setNavToggled(!navToggled);
   }

@@ -10,6 +10,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: theme.palette.text.primary,
-    backgroundColor:"#BEE4B4",
+    backgroundColor: "lightyellow",
+    border: "solid #BEE4B4 1px",
     height:"10vw"
   },
 }));
@@ -57,7 +59,7 @@ const DashABelumDetail = () => {
               <ListItemText style={{marginLeft:"20px"}}>
                 <ListItemText primary="Layanan"></ListItemText> 
                 <ListItemText primary="Pengaju"></ListItemText>  
-                <ListItemText primary="Tanggal Pengajuan"></ListItemText> 
+                <ListItemText primary="Waktu Pengajuan"></ListItemText> 
               </ListItemText>
             </Paper>
           </Grid>        
@@ -97,6 +99,9 @@ const DashABelumDetail = () => {
                   variant="filled"
                 />
               </Grid>
+              <Grid item xs={1}>
+                <IconButton><EditIcon></EditIcon></IconButton>
+              </Grid>
             </Grid>
 
             <Grid container alignItems="center" item xs={12}>
@@ -116,6 +121,9 @@ const DashABelumDetail = () => {
                   style={{ margin: 8 }}
                   size="small"
                 />
+              </Grid>
+              <Grid item xs={1}>
+                <IconButton><EditIcon></EditIcon></IconButton>
               </Grid>
             </Grid>
 
@@ -186,18 +194,30 @@ const DashABelumDetail = () => {
 
             <Grid item xs={12}>
             <div><br/>
-              <Link to="">
-                <Button size="small" color="primary">
+              {/* 
+              button kesalahan munculin button edit di kanan Nama sama Tujuan (admin nambahin catetan alasan salah)
+                    sama button "Kesalahan" jadi "Cancel", button "Proses" jadi "Selesai" &  ganti Link to /dashAAdaK (dashboard ada kesalahan)
+                      terus kalo button edit dipencet berarti ganti diTextfield "variant" jadi outlined terus "disabled" jadi error  
+              */}
+              
+              <Link style={{textDecoration:'none'}} to="">
+                <Button size="small" variant="contained" style={{backgroundColor:"yellow"}}>
                   Kesalahan 
-                  {/* 
-                  button kesalahan munculin button edit di kanan Nama sama Tujuan (admin nambahin catetan alasan salah)
-                        sama button "Kesalahan" jadi "Cancel", button "Proses" jadi "Selesai" &  ganti Link to /dashAAdaK (dashboard ada kesalahan)
-                          terus kalo button edit dipencet berarti ganti diTextfield "variant" jadi outlined terus "disabled" jadi error  
-                  */}
                 </Button>
               </Link>
-              <Link to="/dashASedangD">
-                <Button size="small" color="primary">
+              <Link style={{textDecoration:'none'}} to="">
+                <Button size="small" variant="contained" style={{backgroundColor:"indianred"}}>
+                  Cancel 
+                </Button>
+              </Link>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Link style={{textDecoration:'none'}} to="/dashASedangD">
+                <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
+                  Selesai
+                </Button>
+              </Link>
+              <Link style={{textDecoration:'none'}} to="/dashASedangD">
+                <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
                   Proses
                 </Button>
               </Link><br/><br/>

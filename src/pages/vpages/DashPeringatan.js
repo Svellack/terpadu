@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -10,6 +9,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +44,7 @@ const DashPeringatan = () => {
     <Grid container direction='row' justifyContent="center" alignItems="center" item xs={12}>
       <React.Fragment>
           <Grid container justifyContent="flex-start" item xs={11}>
-            <Link to="/dashADibatalkan">
+            <Link to="/dashboard">
             <br/>
             <IconButton>
               <KeyboardBackspaceIcon fontSize="large"/>
@@ -57,7 +57,7 @@ const DashPeringatan = () => {
               <ListItemText style={{marginLeft:"20px"}}>
                 <ListItemText primary="Layanan"></ListItemText> 
                 <ListItemText primary="Pengaju"></ListItemText>  
-                <ListItemText primary="Tanggal Pengajuan"></ListItemText> 
+                <ListItemText primary="Waktu Pengajuan"></ListItemText> 
               </ListItemText>
             </Paper>
           </Grid>        
@@ -68,22 +68,20 @@ const DashPeringatan = () => {
   }
   
   return (
-    <StyledDashAdmin className={classes.root}>
+    <div className={classes.root}>
       <Grid container>
           <FormRow />
           <form className={classes1.root} noValidate autoComplete="off">
             <Grid container>
-            <Grid container justifyContent="space-around" item xs={4}>
-              <br/><br/><br/>
-            </Grid>
-           
+            <Grid item xs={12}><br/><h1>Kesalahan</h1></Grid>
+
             <Grid container alignItems="center" item xs={12}>
               <Grid item xs={1}>
               </Grid>
               <Grid item xs={2}>
                 <Typography style={{textAlign:"left", paddingLeft:"15px"}}>Identitas Peminjam</Typography>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={7}>
                 <TextField
                   id="outlined-full-width"
                   style={{ margin: 8 }}
@@ -97,6 +95,10 @@ const DashPeringatan = () => {
                   variant="filled"
                 />
               </Grid>
+              {/* Mencet Edit baru keluar tergantung yg salah */}
+              <Grid item xs={1}>
+                <IconButton><EditIcon></EditIcon></IconButton>
+              </Grid>
             </Grid>
 
             <Grid container alignItems="center" item xs={12}>
@@ -105,7 +107,7 @@ const DashPeringatan = () => {
               <Grid item xs={2}>
                 <Typography style={{textAlign:"left", paddingLeft:"15px"}}>Tujuan Peminjaman</Typography>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={7}>
                 <TextField
                   id="outlined-multiline-static"
                   multiline
@@ -117,6 +119,10 @@ const DashPeringatan = () => {
                   style={{ margin: 8 }}
                   size="small"
                 />
+              </Grid>
+              {/* Mencet Edit baru keluar tergantung yg salah */}
+              <Grid item xs={1}>
+                <IconButton><EditIcon></EditIcon></IconButton>
               </Grid>
             </Grid>
 
@@ -187,8 +193,8 @@ const DashPeringatan = () => {
 
             <Grid item xs={12}>
             <div><br/>
-              <Link to="">
-                <Button size="small" color="primary">
+              <Link style={{textDecoration:'none'}} to="">
+                <Button size="small" variant="contained" style={{backgroundColor:"yellow"}}>
                   Edit 
                   {/* 
                       kalo button edit dipencet berarti ganti diTextfield "variant" jadi outlined terus "disabled" sama "error" diapus
@@ -196,8 +202,9 @@ const DashPeringatan = () => {
                   */}
                 </Button>
               </Link>
-              <Link to="/dashboard">
-                <Button size="small" color="primary">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Link style={{textDecoration:'none'}} to="/dashboard">
+                <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
                   Submit
                 </Button>
               </Link><br/><br/>
@@ -207,15 +214,8 @@ const DashPeringatan = () => {
             </Grid>
           </form>
       </Grid>
-    </StyledDashAdmin>
+    </div>
   );
 }
-
-const StyledDashAdmin = styled.div`    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
 
 export default DashPeringatan

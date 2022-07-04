@@ -10,6 +10,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: theme.palette.text.primary,
-    backgroundColor:"#BEE4B4",
+    backgroundColor: "lightyellow",
+    border: "solid #FEE45E 1px",
     height:"10vw"
   },
 }));
@@ -97,6 +99,9 @@ const DashASalahDetail = () => {
                   variant="filled"
                 />
               </Grid>
+              <Grid item xs={1}>
+                <IconButton><EditIcon></EditIcon></IconButton>
+              </Grid>
             </Grid>
 
             <Grid container alignItems="center" item xs={12}>
@@ -116,6 +121,9 @@ const DashASalahDetail = () => {
                   style={{ margin: 8 }}
                   size="small"
                 />
+              </Grid>
+              <Grid item xs={1}>
+                <IconButton><EditIcon></EditIcon></IconButton>
               </Grid>
             </Grid>
 
@@ -186,19 +194,30 @@ const DashASalahDetail = () => {
 
             <Grid item xs={12}>
             <div><br/>
-              <Link to="">
-                <Button size="small" color="primary">
+              {/* 
+              yang udah bener fieldnya warna ijo/biru
+                button kesalahan munculin button edit di kanan Nama sama Tujuan 
+                 sama button "Kesalahan"&"Proses" ilang, button "Cancel"&"Selesai" muncul &  ganti Link to /dashAAdaK (dashboard ada kesalahan)
+                  terus kalo button edit dipencet berarti ganti diTextfield "variant" jadi outlined terus "disabled" jadi error  
+              */}
+              <Link style={{textDecoration:'none'}} to="">
+                <Button size="small" variant="contained" style={{backgroundColor:"yellow"}}>
                   Kesalahan 
-                  {/* 
-                  yang udah bener fieldnya warna ijo/biru
-                  button kesalahan munculin button edit di kanan Nama sama Tujuan 
-                        sama button "Kesalahan" jadi "Cancel", button "Proses" jadi "Selesai" &  ganti Link to /dashAAdaK (dashboard ada kesalahan)
-                          terus kalo button edit dipencet berarti ganti diTextfield "variant" jadi outlined terus "disabled" jadi error  
-                  */}
                 </Button>
               </Link>
-              <Link to="/dashASedangD">
-                <Button size="small" color="primary">
+              <Link style={{textDecoration:'none'}} to="">
+                <Button size="small" variant="contained" style={{backgroundColor:"indianred"}}>
+                  Cancel 
+                </Button>
+              </Link>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Link style={{textDecoration:'none'}} to="/dashASedangD">
+                <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
+                  Selesai
+                </Button>
+              </Link>
+              <Link style={{textDecoration:'none'}} to="/dashASedangD">
+                <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
                   Proses
                 </Button>
               </Link><br/><br/>

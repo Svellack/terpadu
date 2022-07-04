@@ -66,18 +66,18 @@ const Navbar = ({handleNavToggle}) => {
             </StyledMenu>
         </div>
         <StyledLink to="/dashboard">
-            <Accordion>
+            <Accordion square>
                 <AccordionSummary>
                     <Typography style={{textAlign:"left"}}>Dashboard</Typography>
                 </AccordionSummary>
             </Accordion>
         </StyledLink>
-        <Accordion>
+        <Accordion square>
             <AccordionSummary>
                 <Typography style={{textAlign:"left"}}>Pelayanan</Typography>
             </AccordionSummary>
         </Accordion>
-        <Accordion>
+        <Accordion square>
             <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
                 <ArrowRightIcon></ArrowRightIcon>
                 <Typography>Akademik</Typography>
@@ -113,7 +113,7 @@ const Navbar = ({handleNavToggle}) => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion square>
             <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
                 <ArrowRightIcon></ArrowRightIcon>
                 <Typography>Peminjaman</Typography>
@@ -159,7 +159,7 @@ const Navbar = ({handleNavToggle}) => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion square>
             <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
                 <ArrowRightIcon></ArrowRightIcon>
                 <Typography>Data</Typography>
@@ -181,7 +181,7 @@ const Navbar = ({handleNavToggle}) => {
             </AccordionDetails>
         </Accordion>
         <StyledLink to="/">
-            <Accordion>
+            <Accordion square>
                 <AccordionSummary>
                     <Typography style={{textAlign:"left"}}>Keluar</Typography>
                 </AccordionSummary>

@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: theme.palette.text.primary,
-    backgroundColor:"#BEE4B4",
+    backgroundColor: "lightyellow",
+    border: "solid #227A2B 1px",
     height:"12vw"
   },
 }));
@@ -61,10 +62,10 @@ const DashAAmbilDetail = () => {
               <ListItemText style={{marginLeft:"20px"}}>
                 <ListItemText primary="Layanan"></ListItemText> 
                 <ListItemText primary="Pengaju"></ListItemText>  
-                <ListItemText primary="Tanggal Pengajuan"></ListItemText> 
-                <ListItemText primary="Tanggal Pemrosesan"></ListItemText> 
-                <ListItemText primary="Tanggal Dicetak"></ListItemText>
-                <ListItemText primary="Tanggal Pengambilan"></ListItemText> 
+                <ListItemText primary="Waktu Pengajuan"></ListItemText> 
+                <ListItemText primary="Waktu Pemrosesan"></ListItemText> 
+                <ListItemText primary="Waktu Dicetak"></ListItemText>
+                <ListItemText primary="Waktu Pengambilan"></ListItemText> 
               </ListItemText>
             </Paper>
           </Grid>        

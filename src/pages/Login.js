@@ -1,10 +1,6 @@
 import React from 'react'
-import { Grid } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import {Box} from '@material-ui/core';
+import { Grid, Box, TextField, Button, makeStyles} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,15 +18,16 @@ function ValidationTextFields() {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <Grid container>
-      <Grid container justifyContent="center" item xs={12}>
+    
+      <Grid alignItems="center" container>
+      <Grid item xs={12}>
         <h1 style={{marginTop:"40px"}}>Login</h1>
       </Grid>
 
-      <Grid container alignItems="center" item xs={12}>
+      <Grid container item xs={12}>
         <Grid item xs={4}></Grid>
           <Grid item xs={4}>
+            <form className={classes.root} noValidate autoComplete="off">
             <TextField
               id="outlined-full-width"
               style={{ margin: 8 }}
@@ -40,15 +37,17 @@ function ValidationTextFields() {
               InputLabelProps={{
                 shrink: true,
               }}
+            
               variant="outlined"
-              placeholder='NIM'
-            />
+              placeholder='Username'
+            /></form>
           </Grid>
         </Grid>
       
-      <Grid container alignItems="center" item xs={12}>
+      <Grid container item xs={12}>
       <Grid item xs={4}></Grid>
           <Grid item xs={4}>
+          <form className={classes.root} noValidate autoComplete="off">
             <TextField
               id="outlined-full-width"
               style={{ margin: 8 }}
@@ -61,32 +60,40 @@ function ValidationTextFields() {
               variant="outlined"
               placeholder='Password'
             />
+            </form>
           </Grid>
       </Grid>
 
-      <Grid item xs={12}>
-      <div><br/>
-        <Link to="/dashAdmin">
-          <Button size="small" color="primary">
-            Admin?
-          </Button>
-        </Link>
-        <Link to="/dashboard">
-          <Button size="small" color="primary">
+      <Grid justifyContent="center" container item xs={12}>
+        <div>
+        <Link style={{textDecoration:'none'}} to="/dashboard">
+          <Button variant="contained" size="small">
             Login
           </Button>
-        </Link><br/><br/>
-      </div>
+        </Link>
+        <br/></div>
       </Grid>
 
+      <Link style={{marginLeft:"10px"}} to="/dashAdmin">
+          <Button size="small">
+            Admin?
+          </Button>
+      </Link><br/><br/>
       </Grid>
-    </form>
+    
   );
 }
 
 const Login = () => {
   return (
-    <Box style={{backgroundColor:"lightgrey", maxHeight:"100vh", paddingTop:"30vh", paddingBottom:"35vh"}}>
+    <Box style={{
+      backgroundColor:"lightgrey",
+      height:"40vh",
+      maxHeight:"60vh",
+      paddingTop:"30vh",
+      paddingBottom:"30vh",
+      paddingRight:"60vh",
+      paddingLeft:"60vh"}}>
         <Grid style={{backgroundColor:"white"}}>
           <ValidationTextFields/>
         </Grid>

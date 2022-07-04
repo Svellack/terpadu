@@ -61,11 +61,13 @@ TablePaginationActions.propTypes = {
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor: "white",
+    color: "black",
+    borderRight:"solid lightgrey 1px"
   },
   body: {
     fontSize: 14,
+    borderRight:"solid lightgrey 1px"
   },
 }))(TableCell);
 
@@ -109,7 +111,7 @@ const Tabel = () => {
   const classes = useStyles();
   const classes2 = useStyles2();
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(20);
+  const [rowsPerPage, setRowsPerPage] = React.useState(12);
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
@@ -118,7 +120,7 @@ const Tabel = () => {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 20));
+    setRowsPerPage(parseInt(event.target.value, 12));
     setPage(0);
   };
   
@@ -126,14 +128,14 @@ const Tabel = () => {
     
     <div className={classes2.root}>
         <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
+          <Table size="small" className={classes.table} aria-label="customized table">
             <TableHead>
-              <TableRow >
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">No.</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Pelayanan</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Tanggal Diaju</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Pengaju</StyledTableCell>
-                <StyledTableCell align="center"></StyledTableCell>
+              <TableRow>
+                <StyledTableCell align="center">No.</StyledTableCell>
+                <StyledTableCell align="center">Pelayanan</StyledTableCell>
+                <StyledTableCell align="center">Diajukan</StyledTableCell>
+                <StyledTableCell align="center">Pengaju</StyledTableCell>
+                <StyledTableCell style={{borderRight:"none"}} align="center"></StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -142,35 +144,29 @@ const Tabel = () => {
             : rows
             ).map((row) => (
                 <StyledTableRow key={row.no}>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center" component="th" scope="row">
-                    {row.no}
-                  </StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.pelayanan}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.diaju}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.pengaju}</StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="center" component="th" scope="row">{row.no}</StyledTableCell>
+                  <StyledTableCell align="center">{row.pelayanan}</StyledTableCell>
+                  <StyledTableCell align="center">{row.diaju}</StyledTableCell>
+                  <StyledTableCell align="center">{row.pengaju}</StyledTableCell>
+                  <StyledTableCell style={{borderRight:"none"}} align="center">
                     <Link to="/dashABelumDetail"><IconButton><FindInPageIcon/></IconButton></Link>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
-            {emptyRows > 0 && (
+            {emptyRows < 12 && (
               <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={3} />
               </TableRow>
             )}
             </TableBody>
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[12, { label: 'All', value: -1 }]}
+                  rowsPerPageOptions={[12]}
                   
                   count={rows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
-                  SelectProps={{
-                    inputProps: { 'aria-label': 'rows per page' },
-                    native: true,
-                  }}
+                
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
                   ActionsComponent={TablePaginationActions}

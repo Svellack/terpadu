@@ -16,11 +16,16 @@ FF3939
 83EE69
 227A2B 
 */
-
+  /* "homepage": "https://github.com/Svellack/svellakterpadu.github.io",*/
 /* 
-login
-jasa
+navbar gaada pas login
+beda navbar beda session
+
+toggle buat Edit,munculin TextField, button
+
+data dummy + hooks DETAIL, ruang, kendaraan, bulan, tahun, waktu, tabel dashboard, tabel admin, box dashboard admin, preview, batal
 */
+
 
 #nav{
   background-color: white;

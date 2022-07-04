@@ -12,6 +12,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { IconButton } from '@material-ui/core';
 import lihat from './lihat.png'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: theme.palette.text.primary,
-    backgroundColor:"#BEE4B4",
+    backgroundColor: "lightyellow",
+    border: "solid #57787C 1px",
     height:"10vw"
   },
 }));
@@ -62,8 +64,8 @@ const DashASedangDetail = () => {
               <ListItemText style={{marginLeft:"20px"}}>
                 <ListItemText primary="Layanan"></ListItemText> 
                 <ListItemText primary="Pengaju"></ListItemText>  
-                <ListItemText primary="Tanggal Pengajuan"></ListItemText> 
-                <ListItemText primary="Tanggal Pemrosesan"></ListItemText> 
+                <ListItemText primary="Waktu Pengajuan"></ListItemText> 
+                <ListItemText primary="Waktu Pemrosesan"></ListItemText> 
               </ListItemText>
             </Paper>
           </Grid>        
@@ -79,9 +81,10 @@ const DashASedangDetail = () => {
           <FormRow />
           <Grid item xs={12}>
                 <br/>
-                <Link to="">
-                <Button size="small" color="primary">
-                  Upload
+                <Link style={{textDecoration:'none'}} to="">
+                <Button size="small" variant="contained">
+                  <CloudUploadIcon/>
+                  &nbsp;&nbsp;Upload
                 </Button>
                 </Link>
             <Card className={classes1.root}>
@@ -92,8 +95,8 @@ const DashASedangDetail = () => {
                   title="Contemplative Reptile"
                 />
                 </CardContent>
-                <Link to="/dashASuratDicetak">
-                <Button size="small" color="primary">
+                <Link style={{textDecoration:'none'}} to="/dashASuratDicetak">
+                <Button size="small" variant="contained" style={{backgroundColor:"lightgreen"}}>
                   Selesai
                 </Button>
                 </Link>

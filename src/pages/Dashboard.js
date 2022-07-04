@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import {IconButton} from '@material-ui/core';
 import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import { Link } from 'react-router-dom';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -14,13 +16,14 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import FindInPageIcon from '@material-ui/icons/FindInPage';
-import {IconButton} from '@material-ui/core';
 import WarningIcon from '@material-ui/icons/Warning';
 import CancelIcon from '@material-ui/icons/Cancel';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import {Backdrop} from '@material-ui/core';
+import DoneIcon from '@material-ui/icons/Done';
+import CloseIcon from '@material-ui/icons/Close';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,8 +64,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
-
-
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -109,11 +110,13 @@ TablePaginationActions.propTypes = {
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor: "white",
+    color: "black",
+    borderRight:"solid lightgrey 1px"
   },
   body: {
     fontSize: 14,
+    borderRight:"solid lightgrey 1px"
   },
 }))(TableCell);
 
@@ -144,26 +147,41 @@ const useStyles2 = makeStyles({
   },
 });
 
+const useStyles3 = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}));
+
 const Dashboard = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  
   const classes2 = useStyles2();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(12);
-
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
+    setRowsPerPage(parseInt(event.target.value, 12));
     setPage(0);
   };
+
+  const classes3 = useStyles3();
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => {
+      setOpen(false);
+    };
+    const handleToggle = () => {
+      setOpen(!open);
+    };
 
   return (
     <div className={classes.root}>
@@ -195,12 +213,12 @@ const Dashboard = () => {
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
-              <TableRow >
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">No.</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Pelayanan</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Tanggal Dibuat</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Estimasi Selesai</StyledTableCell>
-                <StyledTableCell align="center"></StyledTableCell>
+              <TableRow>
+                <StyledTableCell align="center">No.</StyledTableCell>
+                <StyledTableCell align="center">Pelayanan</StyledTableCell>
+                <StyledTableCell align="center">Diajukan</StyledTableCell>
+                <StyledTableCell align="center">Estimasi Selesai</StyledTableCell>
+                <StyledTableCell style={{borderRight:"none"}} align="center"></StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -209,37 +227,45 @@ const Dashboard = () => {
             : rows
             ).map((row) => (
                 <StyledTableRow key={row.no}>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center" component="th" scope="row">
-                    {row.no}
-                  </StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.pelayanan}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.dibuat}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.selesai}</StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="center" component="th" scope="row">{row.no}</StyledTableCell>
+                  <StyledTableCell align="center">{row.pelayanan}</StyledTableCell>
+                  <StyledTableCell align="center">{row.dibuat}</StyledTableCell>
+                  <StyledTableCell align="center">{row.selesai}</StyledTableCell>
+                  <StyledTableCell style={{borderRight:"none"}} align="center">
                     <Link to="/dashDetail"><IconButton><FindInPageIcon/></IconButton></Link>
                     <Link to="/dashPeringatan"><IconButton><WarningIcon/></IconButton></Link>
-                    <IconButton><CancelIcon/></IconButton>
+                    <IconButton onClick={handleToggle}>
+                      <CancelIcon/>
+                      
+                    </IconButton>
+                      
                   </StyledTableCell>
+                  
                 </StyledTableRow>
-              ))}
-            {emptyRows > 0 && (
+                
+              ))}<Backdrop className={classes3.backdrop} open={open}>
+                        <Paper variant="outlined" square>
+                          <Typography style={{margin:"20px"}}>
+                          <h1>Apakah kamu yakin untuk membatalkan pengajuan layanan?</h1>
+                          </Typography>
+                          <IconButton><DoneIcon/></IconButton>
+                          <IconButton onClick={handleClose}><CloseIcon/></IconButton>
+                        </Paper>
+                      </Backdrop>
+            {emptyRows < 12 && (
               <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={3} />
               </TableRow>
             )}
             </TableBody>
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[12, { label: 'All', value: -1 }]}
+                  rowsPerPageOptions={[12]}
                   
                   count={rows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
-                  SelectProps={{
-                    inputProps: { 'aria-label': 'rows per page' },
-                    native: true,
-                  }}
+                  
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
                   ActionsComponent={TablePaginationActions}
@@ -263,10 +289,10 @@ const Dashboard = () => {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow >
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">No.</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Pelayanan</StyledTableCell>
-                <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">Tanggal Dibuat</StyledTableCell>
-                <StyledTableCell align="center">Estimasi Selesai</StyledTableCell>
+                <StyledTableCell align="center">No.</StyledTableCell>
+                <StyledTableCell align="center">Pelayanan</StyledTableCell>
+                <StyledTableCell align="center">Selesai</StyledTableCell>
+                <StyledTableCell style={{borderRight:"none"}} align="center">Pengambilan</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -275,25 +301,23 @@ const Dashboard = () => {
             : rows
             ).map((row) => (
                 <StyledTableRow key={row.no}>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center" component="th" scope="row">
-                    {row.no}
-                  </StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.pelayanan}</StyledTableCell>
-                  <StyledTableCell style={{borderRight:"solid red 2px"}} align="center">{row.dibuat}</StyledTableCell>
-                  <StyledTableCell align="center">{row.selesai}</StyledTableCell>
+                  <StyledTableCell align="center" component="th" scope="row">{row.no}</StyledTableCell>
+                  <StyledTableCell align="center">{row.pelayanan}</StyledTableCell>
+                  <StyledTableCell align="center">{row.dibuat}</StyledTableCell>
+                  <StyledTableCell style={{borderRight:"none"}} align="center">{row.selesai}</StyledTableCell>
                 </StyledTableRow>
               ))}
-            {emptyRows > 0 && (
+            {emptyRows < 12 && (
               <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={3} />
               </TableRow>
             )}
+           
             </TableBody>
 
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[12, { label: 'All', value: -1 }]}
+                  rowsPerPageOptions={[12]}
                   
                   count={rows.length}
                   rowsPerPage={rowsPerPage}
