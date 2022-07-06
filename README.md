@@ -1,3 +1,5 @@
+Yang layout Navbar cuman sementara, harusnya Page Login gaada navbar (kalo gaada navbarnya, page login bentuknya normal), Navbar Admin sama user biasa beda
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
