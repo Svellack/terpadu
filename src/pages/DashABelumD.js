@@ -4,8 +4,8 @@ import Tabel from './vcomponents/Tabel'
 const DashABelumD = () => {
   return (
     <div>
-      <h1>Belum Diproses</h1>
-      <Tabel />
+        <h1>Belum Diproses</h1>
+        <Tabel/>
     </div>
   )
 }

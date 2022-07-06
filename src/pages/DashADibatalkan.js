@@ -4,8 +4,8 @@ import Tabel from './vcomponents/Tabel'
 const DashADibatalkan = () => {
   return (
     <div>
-    <h1>Dokumen Dibatalkan</h1>
-    <Tabel />
+      <h1>Dokumen Dibatalkan</h1>
+      <Tabel/>
     </div>
   )
 }

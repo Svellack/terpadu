@@ -1,16 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import {Link} from 'react-router-dom'
+
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import ListItemText from '@material-ui/core/ListItemText';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+
 import { IconButton } from '@material-ui/core';
-import lihat from './lihat.png'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
+
+import lihat from './lihat.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,14 +51,14 @@ const DashAAmbilDetail = () => {
     return (
     <Grid container direction='row' justifyContent="center" alignItems="center" item xs={12}>
       <React.Fragment>
-          <Grid container justifyContent="flex-start" item xs={11}>
-            <Link to="/dashASuratDiambil">
-            <br/>
+        <Grid container justifyContent="flex-start" item xs={11}>
+          <Link to="/dashASuratDiambil"><br/>
             <IconButton>
               <KeyboardBackspaceIcon fontSize="large"/>
             </IconButton>
-            </Link>
-          </Grid>
+          </Link>
+        </Grid>
+
         <Grid container item xs={8}>
           <Grid item xs={12}>
             <Paper className={classes.paper} square>
@@ -76,32 +79,21 @@ const DashAAmbilDetail = () => {
   }
   
   return (
-    <StyledDashAdmin className={classes.root}>
-      <Grid container>
-          <FormRow />
-          <Grid item xs={12}>
-                <br/>
-            <Card className={classes1.root}>
-                <CardContent className={classes1.edit}>
-                  <CardMedia
-                  className={classes1.media}
-                  image={lihat}
-                  title="Contemplative Reptile"
-                />
-                </CardContent>
-            </Card>
-          </Grid>
-          
+    <Grid container>
+      <FormRow />
+      <Grid item xs={12}><br/>
+        <Card className={classes1.root}>
+          <CardContent className={classes1.edit}>
+            <CardMedia
+            className={classes1.media}
+            image={lihat}
+            title="Contemplative Reptile"
+          />
+          </CardContent>
+        </Card>
       </Grid>
-    </StyledDashAdmin>
+    </Grid>
   );
 }
-
-const StyledDashAdmin = styled.div`    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
 
 export default DashAAmbilDetail

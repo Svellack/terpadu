@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+
 import { Box, IconButton } from '@material-ui/core';
-import lihat from './lihat.png'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-import { Link } from 'react-router-dom';
+
+import lihat from './lihat.png'
 
 const useStyles = makeStyles({
   root: {
@@ -28,21 +31,20 @@ const DashDetail = () => {
 
   return (
     <Box display="flex">
-    <Card className={classes.root}>
-        <CardContent className={classes.edit}>
-           <Link to="/dashboard">
-           <IconButton>
-             <KeyboardBackspaceIcon fontSize="large"/>
-           </IconButton>
-           </Link>
-          <CardMedia
-            className={classes.media}
-            image={lihat}
-            title="Contemplative Reptile"
-          />
-        </CardContent>
-    </Card>
-    
+      <Card className={classes.root}>
+          <CardContent className={classes.edit}>
+            <Link to="/dashboard">
+              <IconButton>
+                <KeyboardBackspaceIcon fontSize="large"/>
+              </IconButton>
+            </Link>
+            <CardMedia
+              className={classes.media}
+              image={lihat}
+              title="Contemplative Reptile"
+            />
+          </CardContent>
+      </Card>
     </Box>
   );
 }

@@ -4,8 +4,8 @@ import Tabel from './vcomponents/Tabel'
 const DashASuratDicetak = () => {
   return (
     <div>
-    <h1>Dokumen Sudah Dicetak</h1>
-    <Tabel />
+      <h1>Dokumen Sudah Dicetak</h1>
+      <Tabel/>
     </div>
   )
 }

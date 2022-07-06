@@ -36,16 +36,14 @@ import Footer from './components/Footer'
 import './App.css'
 
 function App() {
-  const Approute = () => {
+  const Approute = ({pilih,match}) => {
     return(
     <Router>
       <Grid container>
-        
-       
         <Grid id="nav" item xs={3}>
           { navToggled ? <Navbar handleNavToggle={handleNavToggle} /> : null }
           <Toggle handleNavToggle={handleNavToggle} />
-           <NavbarAdmin/> 
+          <NavbarAdmin/> 
         </Grid>
 
         <Grid id="nonnav" item xs={9}>
@@ -80,9 +78,6 @@ function App() {
   }
 
   const [navToggled, setNavToggled] = useState(false);
-  
-  
-
   const handleNavToggle = () => {
     setNavToggled(!navToggled);
   }
@@ -91,16 +86,15 @@ function App() {
     <div className="App">
       <Grid container>
         <Grid id="header" container item >
-          <Header />
+          <Header/>
         </Grid>
 
         <Grid id="isi" container item>
-          
           <Approute/>
         </Grid>
 
         <Grid id="footer" container item>
-          <Footer />
+          <Footer/>
         </Grid>
       </Grid>
     </div>

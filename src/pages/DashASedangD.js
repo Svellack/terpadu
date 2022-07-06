@@ -4,8 +4,8 @@ import Tabel from './vcomponents/Tabel'
 const DashASedangD = () => {
   return (
     <div>
-    <h1>Sedang Diproses</h1>
-    <Tabel />
+      <h1>Sedang Diproses</h1>
+      <Tabel/>
     </div>
   )
 }

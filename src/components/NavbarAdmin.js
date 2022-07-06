@@ -1,131 +1,134 @@
 import React from 'react'
-import { makeStyles, withStyles} from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
-//import CloseIcon from '@material-ui/icons/Close';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
+
+import { makeStyles, withStyles} from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography';
+
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import Grid from '@material-ui/core/Grid'
-  
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+
 const useStyles = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-      backgroundColor: theme.palette.background.paper,
-    },
+  root: {
+    width: '100%',
+    backgroundColor: theme.palette.background.paper,
+  },
 }));
   
 const Accordion = withStyles({
-    root: {
-      border: '1px solid rgba(0, 0, 0, .125)',
-      boxShadow: 'none',
-      '&:not(:last-child)': {
-        borderBottom: 0,
-      },
-      '&:before': {
-        display: 'none',
-      },
-      '&$expanded': {
-        margin: 'auto',
-      },
+  root: {
+    border: '1px solid rgba(0, 0, 0, .125)',
+    boxShadow: 'none',
+    '&:not(:last-child)': {
+      borderBottom: 0,
     },
-    expanded: {}
+    '&:before': {
+      display: 'none',
+    },
+    '&$expanded': {
+      margin: 'auto',
+    },
+  },
+  expanded: {}
 })(MuiAccordion);
 
 const AccordionSummary = withStyles({
-    root: {
-      backgroundColor: 'rgba(0, 0, 0, .03)',
-      borderBottom: '1px solid rgba(0, 0, 0, .125)',
-      marginBottom: -1,
+  root: {
+    backgroundColor: 'rgba(0, 0, 0, .03)',
+    borderBottom: '1px solid rgba(0, 0, 0, .125)',
+    marginBottom: -1,
+    minHeight: 56,
+    '&$expanded': {
       minHeight: 56,
-      '&$expanded': {
-        minHeight: 56,
-      },
     },
-    content: {
-      '&$expanded': {
-        margin: '12px 0',
-      },
+  },
+  content: {
+    '&$expanded': {
+      margin: '12px 0',
     },
-    expanded: {},
+  },
+  expanded: {},
 })(MuiAccordionSummary);
 
 const NavbarAdmin = ({handleNavToggle}) => {
-    const classes = useStyles();
-    return (
-        <Grid item xs={12}>
-        <div>
-            <StyledMenu>
-                {/* <CloseToggle onClick={handleNavToggle} /> */}
-            </StyledMenu>
-        </div>
-        <StyledLink to="/dashAdmin">
-            <Accordion square>
-                <AccordionSummary>
-                    <Typography style={{textAlign:"left"}}>Dashboard</Typography>
-                </AccordionSummary>
-            </Accordion>
-        </StyledLink>
-        <Accordion square>
-            <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
-                <ArrowRightIcon/>
-                <Typography style={{textAlign:"left"}}>Kategori</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <div className={classes.root}>
-                    <List>
-                    {['/dashABelumD','/dashASedangD', '/dashAAdaK', '/dashADibatalkan', '/dashASuratDicetak', '/dashASuratDiambil'].map((link,a) => (
-                    <div>
-                    {['Belum Diproses','Sedang Diproses', 'Ada Kesalahan', 'Dibatalkan', 'Surat Dicetak', 'Surat Diambil'].map((text,b) => (
-                        <div>
-                        {['#BEE4B4','#57787C', '#FEE45E', '#FF3939', '#83EE69', '#227A2B'].map((warna,c) => (
-                            <div>
-                            {(a===b)&&(a===c)&&(b===c) ? 
-                                <div>
-                                <Link to={link}>
-                                <ListItem xs={12}>
-                                
-                                    <ListItemText primary={text}></ListItemText>
-  
-                                </ListItem>
-                                </Link>
-                                </div>
-                                : null
-                            }
-                            </div>
-                        ))}
-                        </div>
-                    ))}
-                    </div>
-                    ))}
-                    </List>
-                </div>
-            </AccordionDetails>
-        </Accordion>
+  const classes = useStyles();
+  return (
+    <Grid item xs={12}>
+    <div>
+      <StyledMenu>
+          {/* <CloseToggle onClick={handleNavToggle} /> */}
+      </StyledMenu>
+    </div>
 
-        <StyledLink to="/">
-            <Accordion square>
-                <AccordionSummary>
-                    <Typography style={{textAlign:"left"}}>Keluar</Typography>
-                </AccordionSummary>
-            </Accordion>
-        </StyledLink>
-        </Grid>
+    <Link to="/dashAdmin">
+      <Accordion square>
+        <AccordionSummary>
+          <Typography style={{textAlign:"left"}}>Dashboard</Typography>
+        </AccordionSummary>
+      </Accordion>
+    </Link>
+
+    <Accordion square>
+      <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
+        <ArrowRightIcon/>
+        <Typography style={{textAlign:"left"}}>Kategori</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <div className={classes.root}>
+          <List>
+            {['/dashABelumD','/dashASedangD', '/dashAAdaK', '/dashADibatalkan', '/dashASuratDicetak', '/dashASuratDiambil'].map((link,a) => (
+            <div>
+              {['Belum Diproses','Sedang Diproses', 'Ada Kesalahan', 'Dibatalkan', 'Surat Dicetak', 'Surat Diambil'].map((text,b) => (
+              <div>
+                {['#BEE4B4','#57787C', '#FEE45E', '#FF3939', '#83EE69', '#227A2B'].map((warna,c) => (
+                <div>
+                  {(a===b)&&(a===c)&&(b===c) ? 
+                  <div>
+                    <Link to={link}>
+                    <ListItem xs={12}>
+                    
+                        <ListItemText primary={text}></ListItemText>
+
+                    </ListItem>
+                    </Link>
+                  </div>
+                  : null
+                  }
+                </div>
+                ))}
+              </div>
+              ))}
+            </div>
+            ))}
+          </List>
+        </div>
+      </AccordionDetails>
+    </Accordion>
+
+    <Link to="/">
+        <Accordion square>
+            <AccordionSummary>
+                <Typography style={{textAlign:"left"}}>Keluar</Typography>
+            </AccordionSummary>
+        </Accordion>
+    </Link>
+    </Grid>
   )
 }  
-  const StyledMenu = styled.div`
-      display: flex;
-      flex-direction: column;
-  `;
-  const StyledLink = styled(Link)`
 
+const StyledMenu = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
+
 //   const CloseToggle = styled(CloseIcon)`
 //       position: fixed;
 //       bottom: 5%;

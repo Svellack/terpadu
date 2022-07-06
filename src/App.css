@@ -15,9 +15,9 @@ FEE45E
 FF3939
 83EE69
 227A2B 
-*/
-  /* "homepage": "https://github.com/Svellack/svellakterpadu.github.io",*/
-/* 
+
+"homepage": "https://github.com/Svellack/svellakterpadu.github.io",
+
 navbar gaada pas login
 beda navbar beda session
 
@@ -29,12 +29,13 @@ data dummy + hooks DETAIL, ruang, kendaraan, bulan, tahun, waktu, tabel dashboar
 
 #nav{
   background-color: white;
-  border-top:solid lightgrey 10px;
+  
 }
 
 #nonnav{
   background-color: white;
   border:solid lightgrey 10px;
+ 
 }
 
 #footer{

@@ -18,16 +18,15 @@ function ValidationTextFields() {
   const classes = useStyles();
 
   return (
-    
-      <Grid alignItems="center" container>
+    <Grid alignItems="center" container>
       <Grid item xs={12}>
         <h1 style={{marginTop:"40px"}}>Login</h1>
       </Grid>
 
       <Grid container item xs={12}>
         <Grid item xs={4}></Grid>
-          <Grid item xs={4}>
-            <form className={classes.root} noValidate autoComplete="off">
+        <Grid item xs={4}>
+          <form className={classes.root} noValidate autoComplete="off">
             <TextField
               id="outlined-full-width"
               style={{ margin: 8 }}
@@ -37,16 +36,16 @@ function ValidationTextFields() {
               InputLabelProps={{
                 shrink: true,
               }}
-            
               variant="outlined"
               placeholder='Username'
-            /></form>
-          </Grid>
+            />
+          </form>
         </Grid>
+      </Grid>
       
       <Grid container item xs={12}>
-      <Grid item xs={4}></Grid>
-          <Grid item xs={4}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={4}>
           <form className={classes.root} noValidate autoComplete="off">
             <TextField
               id="outlined-full-width"
@@ -60,8 +59,8 @@ function ValidationTextFields() {
               variant="outlined"
               placeholder='Password'
             />
-            </form>
-          </Grid>
+          </form>
+        </Grid>
       </Grid>
 
       <Grid justifyContent="center" container item xs={12}>
@@ -70,17 +69,16 @@ function ValidationTextFields() {
           <Button variant="contained" size="small">
             Login
           </Button>
-        </Link>
-        <br/></div>
+        </Link><br/>
+        </div>
       </Grid>
 
       <Link style={{marginLeft:"10px"}} to="/dashAdmin">
-          <Button size="small">
-            Admin?
-          </Button>
+        <Button size="small">
+          Admin?
+        </Button>
       </Link><br/><br/>
-      </Grid>
-    
+    </Grid>
   );
 }
 
@@ -94,9 +92,9 @@ const Login = () => {
       paddingBottom:"30vh",
       paddingRight:"60vh",
       paddingLeft:"60vh"}}>
-        <Grid style={{backgroundColor:"white"}}>
-          <ValidationTextFields/>
-        </Grid>
+      <Grid style={{backgroundColor:"white"}}>
+        <ValidationTextFields/>
+      </Grid>
     </Box>
   )
 }

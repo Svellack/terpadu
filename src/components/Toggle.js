@@ -11,5 +11,5 @@ const Toggle = ({handleNavToggle}) => {
 export default Toggle
 
 const StyledToggle = styled(HorizontalSplitIcon)`
-    
+
 `;
